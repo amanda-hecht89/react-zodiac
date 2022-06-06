@@ -1,15 +1,16 @@
 import React from 'react';
 import backgroundImg from '../background.png';
 import './Main.css';
-import { ZodiacCard } from '../ZodiacCard.js';
-import { zodiac } from '../data';
+import ZodiacCard from '../ZodiacCard/ZodiacCard';
 
-export default function Main() {
+export default function Main({ zodiacs }) {
   return (
     <main style={{ backgroundImage: `url(${backgroundImg})` }}>
-      zodiacs.map((zodiac,i) => ZodiacCard
-      {...zodiac}
-      key={zodiac.name = i} />)
+      {
+        zodiacs.map((zodiac, i) => <ZodiacCard
+          key={zodiac.name + i} 
+          {...zodiac}/>)
+      }
     </main>
   );
 }
